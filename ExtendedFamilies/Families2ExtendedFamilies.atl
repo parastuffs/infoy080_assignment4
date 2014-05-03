@@ -1,0 +1,6 @@
+-- @path Families=/ExtendedFamilies/Families.ecore
+-- @path ExtendedFamilies=/ExtendedFamilies/ExtendedFamilies.ecore
+module Families2ExtendedFamilies;
+
+create OUT: ExtendedFamilies from IN: Families;
+
