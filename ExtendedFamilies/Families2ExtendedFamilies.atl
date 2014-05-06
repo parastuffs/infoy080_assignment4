@@ -4,3 +4,47 @@ module Families2ExtendedFamilies;
 
 create OUT: ExtendedFamilies from IN: Families;
 
+-- string : toUpper()
+-- println() writes the self string onto the default output
+
+helper context Families!Member def: isFemale: Boolean =
+	if not self.familyMother.oclIsUndefined() then
+		true
+	else
+		not self.familyDaughter.oclIsUndefined()
+	endif;
+
+--helper context Families!Member def: isParent: Boolean =
+--	if not self.familyMother.oclIsUndefined() then
+--		true
+--	else
+--		not self.familyFather.oclIsUndefined()
+--	endif;
+
+helper context Families!Member def: familyName: String =
+	Set{self.familyFather, self.familyMother, self.familySon, self.familyDaughter}
+		->any(f|not f.oclIsUndefined()).lastName;
+		
+rule Member2Male {
+	from
+		s: Families!Member (not s.isFemale)
+	to
+		t: ExtendedFamilies!Male (
+			firstName <- s.firstName
+		)
+	do {
+		self.println('Member2Male');
+	}
+}
+
+rule Member2Female {
+	from
+		s: Families!Member (s.isFemale)
+	to
+		t: ExtendedFamilies!Female (
+			firstame <- s.firstName
+		)
+	do {
+		self.println('Member2Male');
+	}
+}

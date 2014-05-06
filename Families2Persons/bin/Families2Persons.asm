@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'ISO-8859-1' ?>
 <asm version="1.0" name="0">
 	<cp>
-		<constant value="Families2ExtendedFamilies"/>
+		<constant value="Families2Persons"/>
 		<constant value="links"/>
 		<constant value="NTransientLinkSet;"/>
 		<constant value="col"/>
@@ -25,8 +25,8 @@
 		<constant value="TransientLinkSet"/>
 		<constant value="A.__matcher__():V"/>
 		<constant value="A.__exec__():V"/>
-		<constant value="10:16-10:31"/>
-		<constant value="24:16-24:31"/>
+		<constant value="7:16-7:31"/>
+		<constant value="14:16-14:31"/>
 		<constant value="self"/>
 		<constant value="__resolve__"/>
 		<constant value="1"/>
@@ -66,16 +66,16 @@
 		<constant value="10"/>
 		<constant value="familyDaughter"/>
 		<constant value="11"/>
-		<constant value="11:9-11:13"/>
-		<constant value="11:9-11:26"/>
-		<constant value="11:9-11:43"/>
-		<constant value="11:5-11:43"/>
-		<constant value="14:7-14:11"/>
-		<constant value="14:7-14:26"/>
-		<constant value="14:7-14:43"/>
-		<constant value="14:3-14:43"/>
-		<constant value="12:3-12:7"/>
-		<constant value="11:2-15:7"/>
+		<constant value="8:9-8:13"/>
+		<constant value="8:9-8:26"/>
+		<constant value="8:9-8:43"/>
+		<constant value="8:5-8:43"/>
+		<constant value="11:7-11:11"/>
+		<constant value="11:7-11:26"/>
+		<constant value="11:7-11:43"/>
+		<constant value="11:3-11:43"/>
+		<constant value="9:3-9:7"/>
+		<constant value="8:2-12:7"/>
 		<constant value="Set"/>
 		<constant value="familyFather"/>
 		<constant value="CJ.including(J):CJ"/>
@@ -85,20 +85,20 @@
 		<constant value="CJ.asSequence():QJ"/>
 		<constant value="QJ.first():J"/>
 		<constant value="lastName"/>
-		<constant value="25:6-25:10"/>
-		<constant value="25:6-25:23"/>
-		<constant value="25:25-25:29"/>
-		<constant value="25:25-25:42"/>
-		<constant value="25:44-25:48"/>
-		<constant value="25:44-25:58"/>
-		<constant value="25:60-25:64"/>
-		<constant value="25:60-25:79"/>
-		<constant value="25:2-25:80"/>
-		<constant value="26:15-26:16"/>
-		<constant value="26:15-26:33"/>
-		<constant value="26:11-26:33"/>
-		<constant value="25:2-26:34"/>
-		<constant value="25:2-26:43"/>
+		<constant value="15:6-15:10"/>
+		<constant value="15:6-15:23"/>
+		<constant value="15:25-15:29"/>
+		<constant value="15:25-15:42"/>
+		<constant value="15:44-15:48"/>
+		<constant value="15:44-15:58"/>
+		<constant value="15:60-15:64"/>
+		<constant value="15:60-15:79"/>
+		<constant value="15:2-15:80"/>
+		<constant value="16:15-16:16"/>
+		<constant value="16:15-16:33"/>
+		<constant value="16:11-16:33"/>
+		<constant value="15:2-16:34"/>
+		<constant value="15:2-16:43"/>
 		<constant value="f"/>
 		<constant value="__matchMember2Male"/>
 		<constant value="IN"/>
@@ -110,43 +110,46 @@
 		<constant value="NTransientLink;.addSourceElement(SJ):V"/>
 		<constant value="t"/>
 		<constant value="Male"/>
-		<constant value="ExtendedFamilies"/>
+		<constant value="Persons"/>
 		<constant value="NTransientLink;.addTargetElement(SJ):V"/>
 		<constant value="NTransientLinkSet;.addLink2(NTransientLink;B):V"/>
-		<constant value="30:27-30:28"/>
-		<constant value="30:27-30:37"/>
-		<constant value="30:23-30:37"/>
-		<constant value="32:3-34:4"/>
+		<constant value="20:27-20:28"/>
+		<constant value="20:27-20:37"/>
+		<constant value="20:23-20:37"/>
+		<constant value="22:3-24:4"/>
 		<constant value="__applyMember2Male"/>
 		<constant value="NTransientLink;"/>
 		<constant value="NTransientLink;.getSourceElement(S):J"/>
 		<constant value="NTransientLink;.getTargetElement(S):J"/>
 		<constant value="3"/>
 		<constant value="firstName"/>
-		<constant value="J.println(J):J"/>
-		<constant value="33:17-33:18"/>
-		<constant value="33:17-33:28"/>
-		<constant value="33:4-33:28"/>
-		<constant value="36:3-36:7"/>
-		<constant value="36:16-36:29"/>
-		<constant value="36:3-36:31"/>
-		<constant value="35:2-37:3"/>
+		<constant value=" "/>
+		<constant value="J.+(J):J"/>
+		<constant value="fullName"/>
+		<constant value="23:16-23:17"/>
+		<constant value="23:16-23:27"/>
+		<constant value="23:30-23:33"/>
+		<constant value="23:16-23:33"/>
+		<constant value="23:36-23:37"/>
+		<constant value="23:36-23:48"/>
+		<constant value="23:16-23:48"/>
+		<constant value="23:4-23:48"/>
 		<constant value="link"/>
 		<constant value="__matchMember2Female"/>
 		<constant value="31"/>
 		<constant value="Female"/>
-		<constant value="42:23-42:24"/>
-		<constant value="42:23-42:33"/>
-		<constant value="44:3-46:4"/>
+		<constant value="29:23-29:24"/>
+		<constant value="29:23-29:33"/>
+		<constant value="31:3-33:4"/>
 		<constant value="__applyMember2Female"/>
-		<constant value="firstame"/>
-		<constant value="45:16-45:17"/>
-		<constant value="45:16-45:27"/>
-		<constant value="45:4-45:27"/>
-		<constant value="48:3-48:7"/>
-		<constant value="48:16-48:29"/>
-		<constant value="48:3-48:31"/>
-		<constant value="47:2-49:3"/>
+		<constant value="32:16-32:17"/>
+		<constant value="32:16-32:27"/>
+		<constant value="32:30-32:33"/>
+		<constant value="32:16-32:33"/>
+		<constant value="32:36-32:37"/>
+		<constant value="32:36-32:48"/>
+		<constant value="32:16-32:48"/>
+		<constant value="32:4-32:48"/>
 	</cp>
 	<field name="1" type="2"/>
 	<field name="3" type="4"/>
@@ -479,31 +482,34 @@
 			<getasm/>
 			<load arg="38"/>
 			<get arg="121"/>
+			<push arg="122"/>
+			<call arg="123"/>
+			<load arg="38"/>
+			<get arg="19"/>
+			<call arg="123"/>
 			<call arg="39"/>
-			<set arg="121"/>
+			<set arg="124"/>
 			<pop/>
-			<load arg="58"/>
-			<push arg="52"/>
-			<pcall arg="122"/>
 		</code>
 		<linenumbertable>
-			<lne id="123" begin="11" end="11"/>
-			<lne id="124" begin="11" end="12"/>
-			<lne id="125" begin="9" end="14"/>
-			<lne id="115" begin="8" end="15"/>
-			<lne id="126" begin="16" end="16"/>
-			<lne id="127" begin="17" end="17"/>
-			<lne id="128" begin="16" end="18"/>
-			<lne id="129" begin="16" end="18"/>
+			<lne id="125" begin="11" end="11"/>
+			<lne id="126" begin="11" end="12"/>
+			<lne id="127" begin="13" end="13"/>
+			<lne id="128" begin="11" end="14"/>
+			<lne id="129" begin="15" end="15"/>
+			<lne id="130" begin="15" end="16"/>
+			<lne id="131" begin="11" end="17"/>
+			<lne id="132" begin="9" end="19"/>
+			<lne id="115" begin="8" end="20"/>
 		</linenumbertable>
 		<localvariabletable>
-			<lve slot="3" name="107" begin="7" end="18"/>
-			<lve slot="2" name="105" begin="3" end="18"/>
-			<lve slot="0" name="26" begin="0" end="18"/>
-			<lve slot="1" name="130" begin="0" end="18"/>
+			<lve slot="3" name="107" begin="7" end="20"/>
+			<lve slot="2" name="105" begin="3" end="20"/>
+			<lve slot="0" name="26" begin="0" end="20"/>
+			<lve slot="1" name="133" begin="0" end="20"/>
 		</localvariabletable>
 	</operation>
-	<operation name="131">
+	<operation name="134">
 		<context type="6"/>
 		<parameters>
 		</parameters>
@@ -518,7 +524,7 @@
 			<load arg="28"/>
 			<get arg="16"/>
 			<call arg="79"/>
-			<if arg="132"/>
+			<if arg="135"/>
 			<getasm/>
 			<get arg="1"/>
 			<push arg="103"/>
@@ -533,7 +539,7 @@
 			<pcall arg="106"/>
 			<dup/>
 			<push arg="107"/>
-			<push arg="133"/>
+			<push arg="136"/>
 			<push arg="109"/>
 			<new/>
 			<pcall arg="110"/>
@@ -542,16 +548,16 @@
 			<enditerate/>
 		</code>
 		<linenumbertable>
-			<lne id="134" begin="7" end="7"/>
-			<lne id="135" begin="7" end="8"/>
-			<lne id="136" begin="23" end="28"/>
+			<lne id="137" begin="7" end="7"/>
+			<lne id="138" begin="7" end="8"/>
+			<lne id="139" begin="23" end="28"/>
 		</linenumbertable>
 		<localvariabletable>
 			<lve slot="1" name="105" begin="6" end="30"/>
 			<lve slot="0" name="26" begin="0" end="31"/>
 		</localvariabletable>
 	</operation>
-	<operation name="137">
+	<operation name="140">
 		<context type="6"/>
 		<parameters>
 			<parameter name="28" type="117"/>
@@ -570,28 +576,31 @@
 			<getasm/>
 			<load arg="38"/>
 			<get arg="121"/>
+			<push arg="122"/>
+			<call arg="123"/>
+			<load arg="38"/>
+			<get arg="19"/>
+			<call arg="123"/>
 			<call arg="39"/>
-			<set arg="138"/>
+			<set arg="124"/>
 			<pop/>
-			<load arg="58"/>
-			<push arg="52"/>
-			<pcall arg="122"/>
 		</code>
 		<linenumbertable>
-			<lne id="139" begin="11" end="11"/>
-			<lne id="140" begin="11" end="12"/>
-			<lne id="141" begin="9" end="14"/>
-			<lne id="136" begin="8" end="15"/>
-			<lne id="142" begin="16" end="16"/>
-			<lne id="143" begin="17" end="17"/>
-			<lne id="144" begin="16" end="18"/>
-			<lne id="145" begin="16" end="18"/>
+			<lne id="141" begin="11" end="11"/>
+			<lne id="142" begin="11" end="12"/>
+			<lne id="143" begin="13" end="13"/>
+			<lne id="144" begin="11" end="14"/>
+			<lne id="145" begin="15" end="15"/>
+			<lne id="146" begin="15" end="16"/>
+			<lne id="147" begin="11" end="17"/>
+			<lne id="148" begin="9" end="19"/>
+			<lne id="139" begin="8" end="20"/>
 		</linenumbertable>
 		<localvariabletable>
-			<lve slot="3" name="107" begin="7" end="18"/>
-			<lve slot="2" name="105" begin="3" end="18"/>
-			<lve slot="0" name="26" begin="0" end="18"/>
-			<lve slot="1" name="130" begin="0" end="18"/>
+			<lve slot="3" name="107" begin="7" end="20"/>
+			<lve slot="2" name="105" begin="3" end="20"/>
+			<lve slot="0" name="26" begin="0" end="20"/>
+			<lve slot="1" name="133" begin="0" end="20"/>
 		</localvariabletable>
 	</operation>
 </asm>
