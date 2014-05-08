@@ -1,11 +1,11 @@
+-- INFOY080 - Software Architectures
+-- Assignment 4 - Dehouck Samuel & Delhaye Quentin
 -- @path Families=/ExtendedFamilies/Families.ecore
 -- @path ExtendedFamilies=/ExtendedFamilies/ExtendedFamilies.ecore
 module Families2ExtendedFamilies;
 
 create OUT: ExtendedFamilies from IN: Families;
 
--- string : toUpper()
--- println() writes the self string onto the default output
 
 helper context Families!Member def: isFemale: Boolean =
 	if not self.familyMother.oclIsUndefined() then
@@ -33,7 +33,7 @@ helper context Families!Member def: isDaughter: Boolean =
 helper context Families!Member def: isSon: Boolean =
 	not self.isFemale and not self.isParent;
 
-rule Member2Person {
+abstract rule Member2Person {
 	from
 		s: Families!Member
 	to
@@ -47,6 +47,9 @@ rule Member2Father extends Member2Person {
 		s: Families!Member (s.isFather)
 	to
 		t: ExtendedFamilies!Male (
+			-- The family reference can only be resolved once the reference of
+			-- s.familyFather has been set. Once it's done, we use 't_family'
+			-- from the rule having resolved the first reference.
 			family <- thisModule.resolveTemp(s.familyFather, 't_family')
 		)
 }
@@ -57,6 +60,11 @@ rule Member2Son extends Member2Person {
 	to
 		t: ExtendedFamilies!Male (
 			family <- thisModule.resolveTemp(s.familySon, 't_family'),
+			-- The parent/child relation needs only to be set for one
+			-- actor, the other one being set automatically.
+			-- We choose to set the reference for the children as they
+			-- only have one mother and one father according to the
+			-- specification.
 			parents <- thisModule.resolveTemp(s.familySon.father, 't'),
 			parents <- thisModule.resolveTemp(s.familySon.mother, 't')
 		)
@@ -82,6 +90,7 @@ rule Member2Daughter extends Member2Person {
 		)
 }
 
+--- Creates a family to which we'll add persons.
 rule Family2Family {
 	from
 		s_family: Families!Family
