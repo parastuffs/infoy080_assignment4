@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"/>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ExtendedFamilies="platform:/resource/ExtendedFamilies/ExtendedFamilies.ecore">
+  <ExtendedFamilies:Male firstName="Jim"/>
+  <ExtendedFamilies:Male firstName="Brandon"/>
+  <ExtendedFamilies:Male firstName="Peter"/>
+  <ExtendedFamilies:Male firstName="David"/>
+  <ExtendedFamilies:Male firstName="Dylan"/>
+  <ExtendedFamilies:Family lastName="MARCH">
+    <members xsi:type="ExtendedFamilies:Female" firstName="Cindy"/>
+  </ExtendedFamilies:Family>
+  <ExtendedFamilies:Family lastName="MARCH">
+    <members xsi:type="ExtendedFamilies:Female" firstName="Brenda"/>
+  </ExtendedFamilies:Family>
+  <ExtendedFamilies:Family lastName="SAILOR">
+    <members xsi:type="ExtendedFamilies:Female" firstName="Jackie"/>
+  </ExtendedFamilies:Family>
+  <ExtendedFamilies:Family lastName="SAILOR">
+    <members xsi:type="ExtendedFamilies:Female" firstName="Kelly"/>
+  </ExtendedFamilies:Family>
+</xmi:XMI>

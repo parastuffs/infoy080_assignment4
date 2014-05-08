@@ -33,7 +33,7 @@ rule Member2Male {
 			firstName <- s.firstName
 		)
 	do {
-		self.println('Member2Male');
+		'Member2Male'.println();
 	}
 }
 
@@ -41,10 +41,14 @@ rule Member2Female {
 	from
 		s: Families!Member (s.isFemale)
 	to
-		t: ExtendedFamilies!Female (
-			firstame <- s.firstName
+		tfam: ExtendedFamilies!Family (
+			lastName <- s.familyName.toUpper()
+		),
+		tfem: ExtendedFamilies!Female (
+			firstName <- s.firstName,
+			family <- tfam
 		)
 	do {
-		self.println('Member2Male');
+		'Member2Male'.println();
 	}
 }
