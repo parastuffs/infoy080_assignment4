@@ -14,12 +14,12 @@ helper context Families!Member def: isFemale: Boolean =
 		not self.familyDaughter.oclIsUndefined()
 	endif;
 
---helper context Families!Member def: isParent: Boolean =
---	if not self.familyMother.oclIsUndefined() then
---		true
---	else
---		not self.familyFather.oclIsUndefined()
---	endif;
+helper context Families!Member def: isParent: Boolean =
+	if not self.familyMother.oclIsUndefined() then
+		true
+	else
+		not self.familyFather.oclIsUndefined()
+	endif;
 
 helper context Families!Member def: familyName: String =
 	Set{self.familyFather, self.familyMother, self.familySon, self.familyDaughter}
@@ -46,9 +46,13 @@ rule Member2Female {
 		),
 		tfem: ExtendedFamilies!Female (
 			firstName <- s.firstName,
+			--family.lastName <- s.familyName.toUpper()
 			family <- tfam
 		)
 	do {
+		if(s.isParent) {
+			tfem.parents <- tfem;
+		}
 		'Member2Male'.println();
 	}
 }

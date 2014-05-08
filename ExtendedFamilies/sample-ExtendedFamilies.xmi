@@ -6,13 +6,13 @@
   <ExtendedFamilies:Male firstName="David"/>
   <ExtendedFamilies:Male firstName="Dylan"/>
   <ExtendedFamilies:Family lastName="MARCH">
-    <members xsi:type="ExtendedFamilies:Female" firstName="Cindy"/>
+    <members xsi:type="ExtendedFamilies:Female" firstName="Cindy" children="/5/@members.0" parents="/5/@members.0"/>
   </ExtendedFamilies:Family>
   <ExtendedFamilies:Family lastName="MARCH">
     <members xsi:type="ExtendedFamilies:Female" firstName="Brenda"/>
   </ExtendedFamilies:Family>
   <ExtendedFamilies:Family lastName="SAILOR">
-    <members xsi:type="ExtendedFamilies:Female" firstName="Jackie"/>
+    <members xsi:type="ExtendedFamilies:Female" firstName="Jackie" children="/7/@members.0" parents="/7/@members.0"/>
   </ExtendedFamilies:Family>
   <ExtendedFamilies:Family lastName="SAILOR">
     <members xsi:type="ExtendedFamilies:Female" firstName="Kelly"/>
