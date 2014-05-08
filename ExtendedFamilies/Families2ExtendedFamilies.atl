@@ -36,35 +36,29 @@ rule Member2Father {
 	from
 		s: Families!Member (not s.isFemale and s.isParent)
 	to
-		t_father: ExtendedFamilies!Male (
+		t: ExtendedFamilies!Male (
 			firstName <- s.firstName,
 			family <- thisModule.resolveTemp(s.familyFather, 't_family')
 		)
-	do {
-		'Member2Father'.println();
-	}
 }
 
 rule Member2Son {
 	from
 		s: Families!Member (not s.isFemale and not s.isParent)
 	to
-		t_son: ExtendedFamilies!Male (
+		t: ExtendedFamilies!Male (
 			firstName <- s.firstName,
 			family <- thisModule.resolveTemp(s.familySon, 't_family'),
-			parents <- thisModule.resolveTemp(s.familySon.father, 't_father'),
-			parents <- thisModule.resolveTemp(s.familySon.mother, 't_mother')
+			parents <- thisModule.resolveTemp(s.familySon.father, 't'),
+			parents <- thisModule.resolveTemp(s.familySon.mother, 't')
 		)
-	do {
-		'Member2Male'.println();
-	}
 }
 
 rule Member2Mother {
 	from
 		s: Families!Member (s.isFemale and s.isParent)
 	to
-		t_mother: ExtendedFamilies!Female (
+		t: ExtendedFamilies!Female (
 			firstName <- s.firstName,
 			family <- thisModule.resolveTemp(s.familyMother, 't_family')
 		)
@@ -74,11 +68,11 @@ rule Member2Daughter {
 	from
 		s: Families!Member (s.isFemale and not s.isParent)
 	to
-		t_daughter: ExtendedFamilies!Female (
+		t: ExtendedFamilies!Female (
 			firstName <- s.firstName,
 			family <- thisModule.resolveTemp(s.familyDaughter, 't_family'),
-			parents <- thisModule.resolveTemp(s.familyDaughter.mother, 't_mother'),
-			parents <- thisModule.resolveTemp(s.familyDaughter.father, 't_father')
+			parents <- thisModule.resolveTemp(s.familyDaughter.mother, 't'),
+			parents <- thisModule.resolveTemp(s.familyDaughter.father, 't')
 		)
 }
 
