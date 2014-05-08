@@ -21,17 +21,17 @@ helper context Families!Member def: isParent: Boolean =
 		not self.familyFather.oclIsUndefined()
 	endif;
 
-helper context Families!Member def: familyName: String =
-	Set{self.familyFather, self.familyMother, self.familySon, self.familyDaughter}
-		->any(f|not f.oclIsUndefined()).lastName;
-		
 helper context Families!Member def: isMother: Boolean =
-	if self.isFemale and self.isParent then
-		true
-	else
-		false
-	endif;
-		
+	self.isFemale and self.isParent;
+
+helper context Families!Member def: isFather: Boolean =
+	not self.isFemale and self.isParent;
+
+helper context Families!Member def: isDaughter: Boolean =
+	self.isFemale and not self.isParent;
+
+helper context Families!Member def: isSon: Boolean =
+	not self.isFemale and not self.isParent;
 
 rule Member2Person {
 	from
@@ -44,7 +44,7 @@ rule Member2Person {
 
 rule Member2Father extends Member2Person {
 	from
-		s: Families!Member (not s.isFemale and s.isParent)
+		s: Families!Member (s.isFather)
 	to
 		t: ExtendedFamilies!Male (
 			family <- thisModule.resolveTemp(s.familyFather, 't_family')
@@ -53,7 +53,7 @@ rule Member2Father extends Member2Person {
 
 rule Member2Son extends Member2Person {
 	from
-		s: Families!Member (not s.isFemale and not s.isParent)
+		s: Families!Member (s.isSon)
 	to
 		t: ExtendedFamilies!Male (
 			family <- thisModule.resolveTemp(s.familySon, 't_family'),
@@ -64,7 +64,7 @@ rule Member2Son extends Member2Person {
 
 rule Member2Mother extends Member2Person {
 	from
-		s: Families!Member (s.isFemale and s.isParent)
+		s: Families!Member (s.isMother)
 	to
 		t: ExtendedFamilies!Female (
 			family <- thisModule.resolveTemp(s.familyMother, 't_family')
@@ -73,7 +73,7 @@ rule Member2Mother extends Member2Person {
 
 rule Member2Daughter extends Member2Person {
 	from
-		s: Families!Member (s.isFemale and not s.isParent)
+		s: Families!Member (s.isDaughter)
 	to
 		t: ExtendedFamilies!Female (
 			family <- thisModule.resolveTemp(s.familyDaughter, 't_family'),
