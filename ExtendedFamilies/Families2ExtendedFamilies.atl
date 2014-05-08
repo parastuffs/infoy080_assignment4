@@ -25,34 +25,64 @@ helper context Families!Member def: familyName: String =
 	Set{self.familyFather, self.familyMother, self.familySon, self.familyDaughter}
 		->any(f|not f.oclIsUndefined()).lastName;
 		
-rule Member2Male {
+helper context Families!Member def: isMother: Boolean =
+	if self.isFemale and self.isParent then
+		true
+	else
+		false
+	endif;
+		
+rule Member2Father {
 	from
-		s: Families!Member (not s.isFemale)
+		s: Families!Member (not s.isFemale and s.isParent)
 	to
 		t: ExtendedFamilies!Male (
-			firstName <- s.firstName
+			firstName <- s.firstName,
+			family <- thisModule.resolveTemp(s.familyFather, 't_family')
+		)
+	do {
+		'Member2Father'.println();
+	}
+}
+
+rule Member2Son {
+	from
+		s: Families!Member (not s.isFemale and not s.isParent)
+	to
+		t: ExtendedFamilies!Male (
+			firstName <- s.firstName,
+			family <- thisModule.resolveTemp(s.familySon, 't_family')
 		)
 	do {
 		'Member2Male'.println();
 	}
 }
 
-rule Member2Female {
+rule Member2Mother {
 	from
-		s: Families!Member (s.isFemale)
+		s: Families!Member (s.isFemale and s.isParent)
 	to
-		tfam: ExtendedFamilies!Family (
-			lastName <- s.familyName.toUpper()
-		),
-		tfem: ExtendedFamilies!Female (
+		tfem_mother: ExtendedFamilies!Female (
 			firstName <- s.firstName,
-			--family.lastName <- s.familyName.toUpper()
-			family <- tfam
+			family <- thisModule.resolveTemp(s.familyMother, 't_family')
 		)
-	do {
-		if(s.isParent) {
-			tfem.parents <- tfem;
-		}
-		'Member2Male'.println();
-	}
+}
+
+rule Member2Daughter {
+	from
+		s: Families!Member (s.isFemale and not s.isParent)
+	to
+		tfem_daughter: ExtendedFamilies!Female (
+			firstName <- s.firstName,
+			family <- thisModule.resolveTemp(s.familyDaughter, 't_family')
+		)
+}
+
+rule Family2Family {
+	from
+		s_family: Families!Family
+	to
+		t_family: ExtendedFamilies!Family (
+			lastName <- s_family.lastName.toUpper()
+		)
 }

@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ExtendedFamilies="platform:/resource/ExtendedFamilies/ExtendedFamilies.ecore">
-  <ExtendedFamilies:Male firstName="Jim"/>
-  <ExtendedFamilies:Male firstName="Brandon"/>
-  <ExtendedFamilies:Male firstName="Peter"/>
-  <ExtendedFamilies:Male firstName="David"/>
-  <ExtendedFamilies:Male firstName="Dylan"/>
   <ExtendedFamilies:Family lastName="MARCH">
-    <members xsi:type="ExtendedFamilies:Female" firstName="Cindy" children="/5/@members.0" parents="/5/@members.0"/>
-  </ExtendedFamilies:Family>
-  <ExtendedFamilies:Family lastName="MARCH">
+    <members xsi:type="ExtendedFamilies:Male" firstName="Jim"/>
+    <members xsi:type="ExtendedFamilies:Male" firstName="Brandon"/>
+    <members xsi:type="ExtendedFamilies:Female" firstName="Cindy"/>
     <members xsi:type="ExtendedFamilies:Female" firstName="Brenda"/>
   </ExtendedFamilies:Family>
   <ExtendedFamilies:Family lastName="SAILOR">
-    <members xsi:type="ExtendedFamilies:Female" firstName="Jackie" children="/7/@members.0" parents="/7/@members.0"/>
-  </ExtendedFamilies:Family>
-  <ExtendedFamilies:Family lastName="SAILOR">
+    <members xsi:type="ExtendedFamilies:Male" firstName="Peter"/>
+    <members xsi:type="ExtendedFamilies:Male" firstName="David"/>
+    <members xsi:type="ExtendedFamilies:Male" firstName="Dylan"/>
+    <members xsi:type="ExtendedFamilies:Female" firstName="Jackie"/>
     <members xsi:type="ExtendedFamilies:Female" firstName="Kelly"/>
   </ExtendedFamilies:Family>
 </xmi:XMI>
