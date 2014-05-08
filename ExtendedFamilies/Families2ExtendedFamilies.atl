@@ -32,44 +32,50 @@ helper context Families!Member def: isMother: Boolean =
 		false
 	endif;
 		
-rule Member2Father {
+
+rule Member2Person {
+	from
+		s: Families!Member
+	to
+		t: ExtendedFamilies!Person (
+			firstName <- s.firstName
+		)
+}
+
+rule Member2Father extends Member2Person {
 	from
 		s: Families!Member (not s.isFemale and s.isParent)
 	to
 		t: ExtendedFamilies!Male (
-			firstName <- s.firstName,
 			family <- thisModule.resolveTemp(s.familyFather, 't_family')
 		)
 }
 
-rule Member2Son {
+rule Member2Son extends Member2Person {
 	from
 		s: Families!Member (not s.isFemale and not s.isParent)
 	to
 		t: ExtendedFamilies!Male (
-			firstName <- s.firstName,
 			family <- thisModule.resolveTemp(s.familySon, 't_family'),
 			parents <- thisModule.resolveTemp(s.familySon.father, 't'),
 			parents <- thisModule.resolveTemp(s.familySon.mother, 't')
 		)
 }
 
-rule Member2Mother {
+rule Member2Mother extends Member2Person {
 	from
 		s: Families!Member (s.isFemale and s.isParent)
 	to
 		t: ExtendedFamilies!Female (
-			firstName <- s.firstName,
 			family <- thisModule.resolveTemp(s.familyMother, 't_family')
 		)
 }
 
-rule Member2Daughter {
+rule Member2Daughter extends Member2Person {
 	from
 		s: Families!Member (s.isFemale and not s.isParent)
 	to
 		t: ExtendedFamilies!Female (
-			firstName <- s.firstName,
 			family <- thisModule.resolveTemp(s.familyDaughter, 't_family'),
 			parents <- thisModule.resolveTemp(s.familyDaughter.mother, 't'),
 			parents <- thisModule.resolveTemp(s.familyDaughter.father, 't')
